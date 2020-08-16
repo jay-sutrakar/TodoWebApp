@@ -1,0 +1,29 @@
+.Background {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+.Modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+}
+.Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    height: 100vh;
+}
+.Form > input {
+    padding : 10px;
+    border-radius: 10px;
+    margin: 5px;
+
+}
+@media (min-height : 450 px){
+    
+}

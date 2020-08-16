@@ -1,0 +1,18 @@
+.Modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+.Form > input {
+    padding : 10px;
+    border-radius: 10px;
+    margin: 5px;
+
+}

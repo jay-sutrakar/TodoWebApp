@@ -1,0 +1,79 @@
+.Card {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    height: 150px;
+    box-shadow: 5px 10px 5px grey;
+}
+.Card:hover {
+    background-color: bisque;   
+}
+.Content {
+    flex-grow: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+}
+.Actions {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+}
+.Actions > button {
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+    border-radius: 70px;
+}
+.Title {
+    font-weight: 400;
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.Description {
+    font-weight: 200;
+    font-size: larger;
+
+}
+.Done:hover{
+    background-color: green;
+}
+.Delete:hover {
+    background-color: red;
+}
+
+@media (max-width : 500px) {
+    .Card{
+        flex-direction: column;
+        
+    }
+    .Title{
+        font-size: larger;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .Description{
+        font-size: medium;
+        font-weight: 300;
+        font-style: italic;
+    }
+    .Actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .Actions > button {
+        height: 40px;
+        margin: 5px;
+        width: 100%;
+    }
+}
