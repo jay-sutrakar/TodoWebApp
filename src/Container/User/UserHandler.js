@@ -9,6 +9,7 @@ import styles from './UserHandler.module.css'
 const UserHandler = () => {
     const [signinModal,setSigninModal] = useState(true)
     const [signupModal,setSignupModal] = useState(false)
+    
     const [windowWidth , setWindowwidth] = useState(window.innerWidth)
     const imageUrl = windowWidth >=450 ? desktopImage : mobileImage
     useEffect(()=>{

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import  { Route, Redirect ,Switch ,withRouter } from 'react-router-dom'
 import UserHandler from './Container/User/UserHandler'
@@ -6,7 +6,17 @@ import {connect} from 'react-redux'
 import { SIGNOUT } from './Store/action';
 import PrivateRoute from './privateRoute'
 import Home from './Home'
+import Axios from 'axios';
 const App  = (props) => {
+  const [error , setError ] = useState('')
+  
+  useEffect(()=> {
+    Axios.get('http://localhost:9000')
+    .then(res => console.log(res.data))
+    .catch(err => setError(console.log(err)))
+  },[])
+  console.log('App.js Render Called')
+
  return (
    <Switch>
       <Route exact render={()=>{

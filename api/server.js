@@ -29,12 +29,13 @@ app.post('/signin',(req,res)=> {
     const email = req.body.email
     const password = req.body.password
     User.findOne({email:email,password:password},(err,doc)=> {
-        if(doc!== null){
-            res.send(doc)
-        }else{
-            res.sendStatus(404)
-        }
+            if(doc!== null){
+                res.send(doc)
+            }else{
+                res.status(404).send('user not exists')
+            }
     })
+    .catch(err => res.send(err))
 })
 //==============================================================SignUp=======================================
 app.post('/signup',(req,res) => {
@@ -42,6 +43,7 @@ app.post('/signup',(req,res) => {
     const username = req.body.username
     const password = req.body.password
     User.findOne({email : email},(err,doc)=> {
+   //     console.log(doc)
         if(doc === null){
             user = new User()
             user.username = username;
@@ -51,7 +53,7 @@ app.post('/signup',(req,res) => {
             .then(res.send(user))
             .catch(err => res.sendStatus(400))
         }else{
-            res.send(err)
+            res.status(403).send(err)
         }
     })
 })

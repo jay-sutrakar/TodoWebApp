@@ -1,15 +1,22 @@
-import React ,{ useState } from 'react'
+import React ,{ useState , useEffect } from 'react'
 import styles from './UserHandler.module.css'
 import axios from 'axios'
 import { SIGNIN } from '../../Store/action'
 import {connect} from 'react-redux'
 import {toast} from 'react-toastify'
+import {Alert, Button,Form} from 'reactstrap'
+import {AccountCircle} from '@material-ui/icons'
 import 'react-toastify/dist/ReactToastify.css'
 const SignIn = (props) => {
     
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    
+    const [error,setError]= useState('')
+    useEffect(()=>{
+        return (()=>{
+            setError('')
+        })
+    },[])
     const toastHandler = (str) => {
         console.log(str)
         toast(str,{
@@ -34,7 +41,7 @@ const SignIn = (props) => {
         .then(res => {
             console.log(res)
             if(res.status==404){
-                toastHandler('user not exist')
+                console.log('user not exist')
             }else{
                 toastHandler('Login successfully ')
                 const user = {
@@ -47,18 +54,36 @@ const SignIn = (props) => {
                 props.userlogin(res.data)
             }
         })
+        .catch(err => {
+            setError('User not Exists')
+            setTimeout(()=>{
+                setError('')
+            },5000)
+        })
     }
-    toastHandler('Hello ')
+    
     return (
         <div className={styles.Modal} open={props.isOpen}>
             {props.isOpen ?
-            <form className={styles.Form} onSubmit={submitHandler}>
-                <h1>Sign In</h1>
-                <input type='text' placeholder='Email' required onChange={emailHandler}/>
-                <input type='password' placeholder='Password' required onChange={passwordHandler}/>
-                <input type='submit'/>
-                <p onClick={closeHandler}>Sign up</p>
-            </form>
+            <div>
+            <Form className={styles.Form} onSubmit={submitHandler}>
+                <AccountCircle style={{width:'100px',height:'100px',margin:'0px'}}/>
+                <h3>Sign In</h3>
+                <input type='text' placeholder='Email' required  onChange={emailHandler}/>
+                <input type='password' placeholder='Password'  required onChange={passwordHandler}/>
+                <Button type='submit'>Sign in</Button><br/>
+                
+                <Button onClick={closeHandler} color='link'>Sign up</Button>
+                {
+                 error.length!== 0 ?
+                <Alert color="danger">
+                    User Not Exists !
+                </Alert>: null
+                
+                }
+            </Form>
+            
+            </div>
             : null}
         </div>
     )

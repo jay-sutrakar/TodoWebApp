@@ -17,14 +17,15 @@ const Home = (props) => {
     }
     
     useEffect(()=> {
-        const interval = setInterval(()=>{
-            setDate(new Date())
-        },1000)
+        // const interval = setInterval(()=>{
+        //     setDate(new Date())
+        // },1000)
 
-        return (()=> {
-            clearTimeout(interval)
-        })
-    },[]) 
+        // return (()=> {
+        //     clearTimeout(interval)
+        // })
+    },[])
+    console.log('Home.js called') 
     return (
         <div className="App">
             <div>
@@ -37,7 +38,7 @@ const Home = (props) => {
                     <h3>{date.toLocaleDateString()}</h3>
                     </div>
                 </Jumbotron>
-                <Navbar className="Toolbar" color='dark' dark expand='md'>
+                <Navbar className="Toolbar" color='dark'>
                         <Nav tabs>
                             <NavItem>
                             <NavLink to="/">
@@ -61,7 +62,7 @@ const Home = (props) => {
                         </NavItem>
 
                         </Nav>
-                                        </Navbar>
+                </Navbar>
                 <div className="Body">
                     <Switch>
                         <Route path='/' exact><TodoContainer user={props.user} ></TodoContainer></Route>
