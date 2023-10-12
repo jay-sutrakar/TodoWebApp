@@ -6,6 +6,7 @@ import SignUp from './Signup'
 import mobileImage from '../../assests/image2.jpg'
 import desktopImage from '../../assests/image3.jpg'
 import styles from './UserHandler.module.css'
+
 const UserHandler = () => {
     const [signinModal,setSigninModal] = useState(true)
     const [signupModal,setSignupModal] = useState(false)

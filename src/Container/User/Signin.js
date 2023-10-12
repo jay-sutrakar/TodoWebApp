@@ -7,16 +7,26 @@ import {toast} from 'react-toastify'
 import {Alert, Button,Form} from 'reactstrap'
 import {AccountCircle} from '@material-ui/icons'
 import 'react-toastify/dist/ReactToastify.css'
+
+/**
+ * SignIn Component
+ * This componet reads the user inputs and send it to backend service
+ * @param {} props 
+ * @returns 
+ */
 const SignIn = (props) => {
     
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [error,setError]= useState('')
+
     useEffect(()=>{
         return (()=>{
             setError('')
         })
     },[])
+
+
     const toastHandler = (str) => {
         console.log(str)
         toast(str,{
@@ -25,18 +35,22 @@ const SignIn = (props) => {
             position:toast.POSITION.TOP_CENTER
         })
     }
+
     const emailHandler = (e) => {
         setEmail(e.target.value) 
     } 
+
     const passwordHandler = (e) => {
         setPassword(e.target.value)
     }
+
     const closeHandler = () => {
         props.close('close');
-
     }
     const submitHandler = (e) => {
-        e.preventDefault()
+
+        e.preventDefault() // this method prevent the page refresh after submitting the request
+        
         axios.post('http://localhost:9000/signin',{email,password})
         .then(res => {
             console.log(res)

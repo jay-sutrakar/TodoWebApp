@@ -1,4 +1,8 @@
 import { DONE_TODO, UPDATE_TODOS , UPDATE_REMINDER ,SIGNIN, SIGNOUT } from './action'
+
+// This is the initial store value, which is also representing the structure of 
+// stored json 
+
 const InitialState = {
     todos : [],
     reminders : [],
@@ -12,7 +16,11 @@ const InitialState = {
 }
 
 let updatedState = null
+// This function return the new state based on the action provided 
+// this function need to be a pure function without any side effect 
 const reducer = ( state = InitialState , action) => {
+
+
     switch(action.type){
         case UPDATE_TODOS : 
             updatedState = {

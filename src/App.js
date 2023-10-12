@@ -8,16 +8,23 @@ import PrivateRoute from './privateRoute'
 import Home from './Home'
 import Axios from 'axios';
 const App  = (props) => {
+
   const [error , setError ] = useState('')
   
   useEffect(()=> {
-    Axios.get('http://localhost:9000')
-    .then(res => console.log(res.data))
-    .catch(err => setError(console.log(err)))
+    //Calling backend service to get the stored data
+    // Axios.get('http://localhost:9000')
+    // .then(res => console.log(res.data))
+    // .catch(err => setError(console.log(err)))
   },[])
-  console.log('App.js Render Called')
+  
+ console.log('App.js Render Called')
 
  return (
+  /*  
+  switch will check for the first matching path of 
+  the request and stop rendering rest of the componets
+  */
    <Switch>
       <Route exact render={()=>{
         if(!props.isSignedIn) 
@@ -37,6 +44,9 @@ const App  = (props) => {
 
       }} path='/signin'/>
       
+      {/** This private route protect direct access of page 
+       * if user is not authorized then it re-route the user to login page 
+       */}
       <PrivateRoute 
         component={Home}
         isSignedIn={props.isSignedIn}
