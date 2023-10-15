@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import  { Route, Redirect ,Switch ,withRouter } from 'react-router-dom'
+import  { Route, Redirect ,Switch } from 'react-router-dom'
 import UserHandler from './Container/User/UserHandler'
 import {connect} from 'react-redux'
 import { SIGNOUT } from './Store/action';
 import PrivateRoute from './privateRoute'
 import Home from './Home'
 import Axios from 'axios';
-const App  = (props) => {
+import Signin from './Container/User/Signin';
+import SignUp from './Container/User/Signup';
+import NewReminder from './Component/NewReminder/NewReminder';
+const App  = () => {
 
   const [error , setError ] = useState('')
   
@@ -21,38 +24,39 @@ const App  = (props) => {
  console.log('App.js Render Called')
 
  return (
+  <div><Signin/></div>
   /*  
   switch will check for the first matching path of 
   the request and stop rendering rest of the componets
-  */
-   <Switch>
-      <Route exact render={()=>{
-        if(!props.isSignedIn) 
-                return <UserHandler/> 
-            else {
-            return  <Redirect to={
-                    {
-                        pathname:'/',
-                        state : {
-                            from : props.location
-                        }
-                    }
-                }
+  // */
+  //  <Switch>
+  //     <Route exact render={()=>{
+  //       if(!props.isSignedIn) 
+  //               return <UserHandler/> 
+  //           else {
+  //           return  <Redirect to={
+  //                   {
+  //                       pathname:'/',
+  //                       state : {
+  //                           from : props.location
+  //                       }
+  //                   }
+  //               }
         
-                />
-            }
+  //               />
+  //           }
 
-      }} path='/signin'/>
+  //     }} path='/signin'/>
       
-      {/** This private route protect direct access of page 
-       * if user is not authorized then it re-route the user to login page 
-       */}
-      <PrivateRoute 
-        component={Home}
-        isSignedIn={props.isSignedIn}
-        path='/'
-      />
-   </Switch>
+  //     {/** This private route protect direct access of page 
+  //      * if user is not authorized then it re-route the user to login page 
+  //      */}
+  //     <PrivateRoute 
+  //       component={Home}
+  //       isSignedIn={props.isSignedIn}
+  //       path='/'
+  //     />
+  //  </Switch>
  )
 }
 const mapStateToProps = state => {
@@ -66,7 +70,9 @@ const mapDispatchToProps = dispatch => {
     signOut : () => dispatch({ type:SIGNOUT }),
   }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(App));
+// export default connect(mapStateToProps,mapDispatchToProps)(withRouter(App));
+export default App
+
 
 
 

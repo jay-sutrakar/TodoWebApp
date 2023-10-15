@@ -44,20 +44,20 @@ const SignUp = (props) => {
             setError('Username should at least of 3 letters ')
             return 
         }
-        axios.post('http://localhost:9000/signup',{username,email,password})
-        .then(res => {
-            console.log(res)
-            if(res.status===400){
-                errorHandler('Something went wrong :(')
-            }else if(res.status === 403){
-                errorHandler('User already exists Please go to signin')
-            }else{
-                setSuccess('Register successfully ')
-            }
-        })
-        .catch(err =>{
-            errorHandler('User already exist with this email')
-        })
+        // axios.post('http://localhost:9000/signup',{username,email,password})
+        // .then(res => {
+        //     console.log(res)
+        //     if(res.status===400){
+        //         errorHandler('Something went wrong :(')
+        //     }else if(res.status === 403){
+        //         errorHandler('User already exists Please go to signin')
+        //     }else{
+        //         setSuccess('Register successfully ')
+        //     }
+        // })
+        // .catch(err =>{
+        //     errorHandler('User already exist with this email')
+        // })
     }
     return (
         <div> 

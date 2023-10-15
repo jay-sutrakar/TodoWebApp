@@ -5,6 +5,7 @@ import Axios from 'axios'
 import {AddCircleOutlineSharp} from '@material-ui/icons'
 import  { connect } from 'react-redux'
 import { UPDATE_REMINDER ,} from '../../Store/action'
+
 const ReminderContainer = (props) => {
     const [Reminders , setReminders] = useState(props.reminders)
     const [ NewReminderModal,setReminderModal] = useState(false)
@@ -12,21 +13,21 @@ const ReminderContainer = (props) => {
 
     const ReminderHandler = (newreminder) => {
 
-        Axios.post(`http://localhost:9000/${user._id}/newreminder`,{newreminder})
-        .then(res => {
-            const oldReminders = [...props.reminders]
-            oldReminders.push(res.data)
-            props.updateReminder(oldReminders)
-            setReminderModal(false)
-        })
+        // Axios.post(`http://localhost:9000/${user._id}/newreminder`,{newreminder})
+        // .then(res => {
+        //     const oldReminders = [...props.reminders]
+        //     oldReminders.push(res.data)
+        //     props.updateReminder(oldReminders)
+        //     setReminderModal(false)
+        // })
     }
     const fetchReminders = () => {
-        Axios.get(`http://localhost:9000/${user._id}/reminders`)
-        .then(res => {
-            setReminderModal(false)
-            setReminders(res.data)
-            return props.updateReminder(res.data)})
-        .catch(err => console.log(err))
+        // Axios.get(`http://localhost:9000/${user._id}/reminders`)
+        // .then(res => {
+        //     setReminderModal(false)
+        //     setReminders(res.data)
+        //     return props.updateReminder(res.data)})
+        // .catch(err => console.log(err))
     }
     useEffect(()=>{
        // setUser(props.user)
@@ -35,11 +36,11 @@ const ReminderContainer = (props) => {
        }
     },[])
     const deleteHandler = (id) => {
-        Axios.delete(`http://localhost:9000/${user._id}/${id}/reminder`)
-        .then(res => {
-            const oldReminders = props.reminders.filter(reminder => (reminder._id).toString() !== id)
-            props.updateReminder(oldReminders)
-        })
+        // Axios.delete(`http://localhost:9000/${user._id}/${id}/reminder`)
+        // .then(res => {
+        //     const oldReminders = props.reminders.filter(reminder => (reminder._id).toString() !== id)
+        //     props.updateReminder(oldReminders)
+        // })
     }
     return (
         <div className="Container">

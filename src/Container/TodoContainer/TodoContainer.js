@@ -8,19 +8,19 @@ import { UPDATE_TODOS, DONE_TODO } from '../../Store/action'
 import Loading from '../../Component/Loading/Loading'
 const TodoContainer = (props) => {
     const [newTodoModal,setNewTodoModal] = useState(false);
-    const [Todos,setTodos] = useState(props.todos)
+    // const [Todos,setTodos] = useState(props.todos)  
     const [isLoading,setLoading] = useState(true)
     const user = props.user
     
     useEffect(()=>{
        if(props.todos.length === 0){
-            axios.get(`http://localhost:9000/${user._id}/todos`)
-                .then(res => {
-                    console.log('Req Called')
-                    setTodos(res.data)
-                    props.updateTodos(res.data)
-                    setLoading(false)
-                })
+            // axios.get(`http://localhost:9000/${user._id}/todos`)
+            //     .then(res => {
+            //         console.log('Req Called')
+            //         // setTodos(res.data)
+            //         props.updateTodos(res.data)
+            //         setLoading(false)
+            //     })
         }else{
             setLoading(false)
         }
@@ -29,29 +29,29 @@ const TodoContainer = (props) => {
     
     const addNewTodo = (todo) => {
         setLoading(true)
-        axios.post(`http://localhost:9000/${user._id}/todo`,{todo})
-        .then(res => {
-            const oldTodos = [...props.todos]
-            oldTodos.push(res.data)
-            props.updateTodos(oldTodos)
-            setNewTodoModal(false)
-            setLoading(false)
-        })
+        // axios.post(`http://localhost:9000/${user._id}/todo`,{todo})
+        // .then(res => {
+        //     const oldTodos = [...props.todos]
+        //     oldTodos.push(res.data)
+        //     props.updateTodos(oldTodos)
+        //     setNewTodoModal(false)
+        //     setLoading(false)
+        // })
     }
     const deleteTodo = (id) => {
         setLoading(true)
-        axios.delete(`http://localhost:9000/${user._id}/${id}/todo`)
-        .then(res => {
-            const oldTodos = props.todos.filter(todo => (todo._id).toString() !== id)
-            props.updateTodos(oldTodos)
-            setLoading(false)
-        })
-        .catch(err => console.log(err))
+        // axios.delete(`http://localhost:9000/${user._id}/${id}/todo`)
+        // .then(res => {
+        //     const oldTodos = props.todos.filter(todo => (todo._id).toString() !== id)
+        //     props.updateTodos(oldTodos)
+        //     setLoading(false)
+        // })
+        // .catch(err => console.log(err))
     }
     const completeTodo = (id) => {
-        axios.post(`http://localhost:9000/${user._id}/${id}/completetodo`)
-        .then(res => props.completeTodo(id))
-        .catch(err => console.log(err))
+        // axios.post(`http://localhost:9000/${user._id}/${id}/completetodo`)
+        // .then(res => props.completeTodo(id))
+        // .catch(err => console.log(err))
     }
     return (
         <div>{ !isLoading ? <div className='Container'>

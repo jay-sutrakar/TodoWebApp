@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
-import {Navbar,Jumbotron, Nav, NavItem,NavLink as Tab ,Button} from 'reactstrap'
-import {Route,NavLink,Switch} from 'react-router-dom'
+import {Navbar, Nav, NavItem,NavLink as Tab ,Button} from 'reactstrap'
+import {Route,NavLink} from 'react-router-dom'
 import TodoContainer from './Container/TodoContainer/TodoContainer'
 import ReminderContainer from './Container/ReminderContainer/ReminderContainer'
 import  classnames from 'classnames'
@@ -29,7 +29,7 @@ const Home = (props) => {
     return (
         <div className="App">
             <div>
-                <Jumbotron className="App-header">
+                {/* <Jumbotron className="App-header">
                     <h1>Stay organized</h1>
                     <h2>Plan for work, home & everything in between</h2>
                     <h3>My Day</h3>
@@ -37,7 +37,7 @@ const Home = (props) => {
                     <h3>{date.toLocaleTimeString()}<span>  </span>{day[date.getUTCDay()]}</h3>
                     <h3>{date.toLocaleDateString()}</h3>
                     </div>
-                </Jumbotron>
+                </Jumbotron> */}
                 <Navbar className="Toolbar" color='dark'>
                         <Nav tabs>
                             <NavItem>
@@ -64,11 +64,11 @@ const Home = (props) => {
                         </Nav>
                 </Navbar>
                 <div className="Body">
-                    <Switch>
+                    {/* <Switch>
                         <Route path='/' exact><TodoContainer user={props.user} ></TodoContainer></Route>
                         <Route path='/reminder' exact><ReminderContainer user={props.user}></ReminderContainer></Route>
                         <Route path="*" component={()=>"404 Not Found"}/>
-                    </Switch>
+                    </Switch> */}
 
                 </div>
 

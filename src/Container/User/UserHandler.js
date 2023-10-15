@@ -7,6 +7,7 @@ import mobileImage from '../../assests/image2.jpg'
 import desktopImage from '../../assests/image3.jpg'
 import styles from './UserHandler.module.css'
 
+// No idea why the hell we need this component
 const UserHandler = () => {
     const [signinModal,setSigninModal] = useState(true)
     const [signupModal,setSignupModal] = useState(false)

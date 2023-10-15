@@ -21,14 +21,15 @@ const NewReminder = (props) => {
     
     return (
         <div>
-            <Modal className={styles.Modal} open={props.isOpen} onClose={closeHandler}>
+
+            {/* <Modal className={styles.Modal} open={props.isOpen} onClose={closeHandler}>
                 <form className={styles.Form} onSubmit={reminderHandler}>
                     <input type="text" placeholder="Reminder title" onChange={(e)=>setTitle(e.target.value)} />
                     <input type='date' onChange={e => setDate(e.target.value)} />
                     <input type='time' onChange={e => setTimer(e.target.value)} />
                     <input type='submit'/>
                 </form>
-            </Modal>
+            </Modal> */}
         </div>
     )
 }

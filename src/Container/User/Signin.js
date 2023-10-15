@@ -16,16 +16,16 @@ import 'react-toastify/dist/ReactToastify.css'
  */
 const SignIn = (props) => {
     
-    const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
-    const [error,setError]= useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError]= useState('')
 
     useEffect(()=>{
+        console.log("Use effect called.")
         return (()=>{
             setError('')
         })
     },[])
-
 
     const toastHandler = (str) => {
         console.log(str)
@@ -50,56 +50,58 @@ const SignIn = (props) => {
     const submitHandler = (e) => {
 
         e.preventDefault() // this method prevent the page refresh after submitting the request
-        
-        axios.post('http://localhost:9000/signin',{email,password})
-        .then(res => {
-            console.log(res)
-            if(res.status==404){
-                console.log('user not exist')
-            }else{
-                toastHandler('Login successfully ')
-                const user = {
-                    _id : res.data._id,
-                    username : res.data.username,
-                    email : res.data.email,
-                    password : res.data.password,
-                }
-                localStorage.setItem('usertoken',JSON.stringify(user))
-                props.userlogin(res.data)
-            }
-        })
-        .catch(err => {
-            setError('User not Exists')
-            setTimeout(()=>{
-                setError('')
-            },5000)
-        })
+        console.log("Submit handler called")
+        // axios.post('http://localhost:9000/signin',{email,password})
+        // .then(res => {
+        //     console.log(res)
+        //     if(res.status==404){
+        //         console.log('user not exist')
+        //     }else{
+        //         toastHandler('Login successfully ')
+        //         const user = {
+        //             _id : res.data._id,
+        //             username : res.data.username,
+        //             email : res.data.email,
+        //             password : res.data.password,
+        //         }
+        //         localStorage.setItem('usertoken',JSON.stringify(user))
+        //         props.userlogin(res.data)
+        //     }
+        // })
+        // .catch(err => {
+        //     setError('User not Exists')
+        //     setTimeout(()=>{
+        //         setError('')
+        //     },5000)
+        // })
     }
     
     return (
-        <div className={styles.Modal} open={props.isOpen}>
-            {props.isOpen ?
-            <div>
-            <Form className={styles.Form} onSubmit={submitHandler}>
-                <AccountCircle style={{width:'100px',height:'100px',margin:'0px'}}/>
-                <h3>Sign In</h3>
-                <input type='text' placeholder='Email' required  onChange={emailHandler}/>
-                <input type='password' placeholder='Password'  required onChange={passwordHandler}/>
-                <Button type='submit'>Sign in</Button><br/>
+        <div>Sign In page</div>
+        
+        // <div className={styles.Modal} open={props.isOpen}>
+        //     {props.isOpen ?
+        //     <div>
+        //     <Form className={styles.Form} onSubmit={submitHandler}>
+        //         <AccountCircle style={{width:'100px',height:'100px',margin:'0px'}}/>
+        //         <h3>Sign In</h3>
+        //         <input type='text' placeholder='Email' required  onChange={emailHandler}/>
+        //         <input type='password' placeholder='Password'  required onChange={passwordHandler}/>
+        //         <Button type='submit'>Sign in</Button><br/>
                 
-                <Button onClick={closeHandler} color='link'>Sign up</Button>
-                {
-                 error.length!== 0 ?
-                <Alert color="danger">
-                    User Not Exists !
-                </Alert>: null
+        //         <Button onClick={closeHandler} color='link'>Sign up</Button>
+        //         {
+        //          error.length!== 0 ?
+        //         <Alert color="danger">
+        //             User Not Exists !
+        //         </Alert>: null
                 
-                }
-            </Form>
+        //         }
+        //     </Form>
             
-            </div>
-            : null}
-        </div>
+        //     </div>
+        //     : null}
+        // </div>
     )
 }
 const mapDispatchToProps = dispatch => {
