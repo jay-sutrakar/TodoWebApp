@@ -5,9 +5,8 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import reducer from './Store/reducers';
+import reducer from './Store/reducers'
 import { SIGNIN } from './Store/action'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 const store = createStore(reducer) // TODO : UNKNOWN
 // localStorage allow you store key value pair in browser

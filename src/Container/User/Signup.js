@@ -1,7 +1,6 @@
 import React ,{ useState } from 'react'
 import styles from './UserHandler.module.css'
 import axios from 'axios'
-import {Alert, Button} from 'reactstrap'
 import 'react-toastify/dist/ReactToastify.css'
 const SignUp = (props) => {
     
