@@ -3,7 +3,6 @@ import styles from './UserHandler.module.css'
 import axios from 'axios'
 import {Alert, Button} from 'reactstrap'
 import 'react-toastify/dist/ReactToastify.css'
-import {AccountCircle} from '@material-ui/icons'
 const SignUp = (props) => {
     
     const [email,setEmail] = useState('')
@@ -61,7 +60,8 @@ const SignUp = (props) => {
     }
     return (
         <div> 
-            <div className={styles.Modal} open={props.isOpen} onClose={closeHandler}>
+            Sign Up page
+            {/* <div className={styles.Modal} open={props.isOpen} onClose={closeHandler}>
             {
             props.isOpen ?
                 <form className={styles.Form} onSubmit={submitHandler}>
@@ -82,7 +82,7 @@ const SignUp = (props) => {
                     }
                 </form>
                 : null }
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import React , { useState } from 'react'
 import styles from './NewReminder.module.css'
-import {Modal} from '@material-ui/core'
 const NewReminder = (props) => {
     
     const [Title,setTitle] = useState('')

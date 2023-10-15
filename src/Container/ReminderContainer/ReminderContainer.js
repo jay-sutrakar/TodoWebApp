@@ -2,7 +2,6 @@ import React , { useState, useEffect } from 'react'
 import ReminderCard from '../../Component/ReminderCard/ReminderCard'
 import NewReminder from '../../Component/NewReminder/NewReminder'
 import Axios from 'axios'
-import {AddCircleOutlineSharp} from '@material-ui/icons'
 import  { connect } from 'react-redux'
 import { UPDATE_REMINDER ,} from '../../Store/action'
 
@@ -44,9 +43,10 @@ const ReminderContainer = (props) => {
     }
     return (
         <div className="Container">
-             <button className="AddButton" onClick={()=> setReminderModal(true)}><AddCircleOutlineSharp/></button>
+            Remainder container 
+             {/* <button className="AddButton" onClick={()=> setReminderModal(true)}><AddCircleOutlineSharp/></button>
             <NewReminder isOpen={NewReminderModal} closeModal={()=>setReminderModal(false)} newReminderHandler={(newreminder) => ReminderHandler(newreminder)} ></NewReminder> 
-            <div>{props.reminders.map((reminder,i) => <ReminderCard key={reminder._id} id={reminder._id} title={reminder.title} date={reminder.date} timer={reminder.timer} delete={(id) => deleteHandler(id)} ></ReminderCard>)}</div>
+            <div>{props.reminders.map((reminder,i) => <ReminderCard key={reminder._id} id={reminder._id} title={reminder.title} date={reminder.date} timer={reminder.timer} delete={(id) => deleteHandler(id)} ></ReminderCard>)}</div> */}
         </div>
     )
 }

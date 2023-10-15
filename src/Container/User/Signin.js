@@ -5,7 +5,6 @@ import { SIGNIN } from '../../Store/action'
 import {connect} from 'react-redux'
 import {toast} from 'react-toastify'
 import {Alert, Button,Form} from 'reactstrap'
-import {AccountCircle} from '@material-ui/icons'
 import 'react-toastify/dist/ReactToastify.css'
 
 /**
@@ -19,7 +18,7 @@ const SignIn = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError]= useState('')
-
+    
     useEffect(()=>{
         console.log("Use effect called.")
         return (()=>{
@@ -77,31 +76,8 @@ const SignIn = (props) => {
     }
     
     return (
-        <div>Sign In page</div>
-        
-        // <div className={styles.Modal} open={props.isOpen}>
-        //     {props.isOpen ?
-        //     <div>
-        //     <Form className={styles.Form} onSubmit={submitHandler}>
-        //         <AccountCircle style={{width:'100px',height:'100px',margin:'0px'}}/>
-        //         <h3>Sign In</h3>
-        //         <input type='text' placeholder='Email' required  onChange={emailHandler}/>
-        //         <input type='password' placeholder='Password'  required onChange={passwordHandler}/>
-        //         <Button type='submit'>Sign in</Button><br/>
-                
-        //         <Button onClick={closeHandler} color='link'>Sign up</Button>
-        //         {
-        //          error.length!== 0 ?
-        //         <Alert color="danger">
-        //             User Not Exists !
-        //         </Alert>: null
-                
-        //         }
-        //     </Form>
-            
-        //     </div>
-        //     : null}
-        // </div>
+       <>
+       </>
     )
 }
 const mapDispatchToProps = dispatch => {

@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './TodoCard.module.css'
-import {Done,Delete} from '@material-ui/icons' 
 const TodoCard = (props) => {
     const todo = props.todo
     const deleteTodo = () => {
@@ -11,7 +10,8 @@ const TodoCard = (props) => {
     }
     return (
         <div className={styles.Card}>
-            <div className={styles.Content} style={{display:'flex',flexDirection:'row',justifyContent:'space-between'}}>
+            Todo card
+            {/* <div className={styles.Content} style={{display:'flex',flexDirection:'row',justifyContent:'space-between'}}>
                 <div >
                     <div className={styles.Title}>{todo.title}</div> 
                     <div className={styles.Description}>{todo.description}</div>
@@ -21,7 +21,7 @@ const TodoCard = (props) => {
                 <div className={styles.Actions}>
                     <button className={styles.Done} onClick={completeTodo}><Done/></button>
                     <button className={styles.Delete} onClick={deleteTodo}><Delete/></button>
-                </div>
+                </div> */}
         </div>
     )
 }

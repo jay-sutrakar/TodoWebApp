@@ -5,7 +5,6 @@ import {Route,NavLink} from 'react-router-dom'
 import TodoContainer from './Container/TodoContainer/TodoContainer'
 import ReminderContainer from './Container/ReminderContainer/ReminderContainer'
 import  classnames from 'classnames'
-import {ExitToAppRounded} from '@material-ui/icons'
 import {SIGNOUT} from './Store/action'
 const Home = (props) => {
     const day = ['Sunday','Monday','Tuesday','Thursday','Friday','Saturday']
@@ -58,7 +57,7 @@ const Home = (props) => {
                                    </NavLink>
                             </NavItem>
                             <NavItem>
-                            <Button onClick={() => props.logOut()}><ExitToAppRounded /></Button>
+                            {/* <Button onClick={() => props.logOut()}><ExitToAppRounded /></Button> */}
                         </NavItem>
 
                         </Nav>

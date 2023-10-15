@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import {Modal} from '@material-ui/core'
 import styles from './NewTodo.module.css'
 const NewTodo = (props) => {
     const [Title,setTitle] = useState('')
@@ -17,13 +16,14 @@ const NewTodo = (props) => {
     }
     return (
         <div>
-            <Modal className={styles.Modal} open={props.isOpen} onClose={handleClose}>
+            New todo model
+            {/* <Modal className={styles.Modal} open={props.isOpen} onClose={handleClose}>
                 <form className={styles.Form}onSubmit={submitHandler}>
                     <input type="text" onChange={(e)=>setTitle(e.target.value)}placeholder="Title"/>
                     <input type="text" onChange={(e)=>setDescription(e.target.value)}placeholder="Description"/>
                     <input type='submit'/>
                 </form>
-            </Modal>
+            </Modal> */}
         </div>
     )
 }

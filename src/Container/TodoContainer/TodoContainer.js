@@ -2,7 +2,6 @@ import React , { useState, useEffect } from 'react'
 import TodoCard from '../../Component/TodoCard/TodoCard'
 import NewTodo from '../../Component/NewTodo/NewTodo'
 import axios from 'axios'
-import {AddCircleOutline} from '@material-ui/icons'
 import { connect } from 'react-redux'
 import { UPDATE_TODOS, DONE_TODO } from '../../Store/action'
 import Loading from '../../Component/Loading/Loading'
@@ -54,17 +53,18 @@ const TodoContainer = (props) => {
         // .catch(err => console.log(err))
     }
     return (
-        <div>{ !isLoading ? <div className='Container'>
-                <button className="AddButton" onClick={() => setNewTodoModal(true)}> <AddCircleOutline/></button>
-                <NewTodo isOpen={newTodoModal} closeModal={()=> setNewTodoModal(false)} todoHandler={(todo) => addNewTodo(todo)}></NewTodo>
-                <div>{  
-                    props.todos.map(todo => {
-                            console.log(todo._id)
-                            return <TodoCard key={todo._id} todo={todo} complete={(id) => completeTodo(id)} delete={(id)=>deleteTodo(id)}></TodoCard>}
-                            ) 
-                    }
-                </div>
-            </div> : <Loading/>}</div>
+        <div>Todo container</div>
+        // <div>{ !isLoading ? <div className='Container'>
+        //         <button className="AddButton" onClick={() => setNewTodoModal(true)}> <AddCircleOutline/></button>
+        //         <NewTodo isOpen={newTodoModal} closeModal={()=> setNewTodoModal(false)} todoHandler={(todo) => addNewTodo(todo)}></NewTodo>
+        //         <div>{  
+        //             props.todos.map(todo => {
+        //                     console.log(todo._id)
+        //                     return <TodoCard key={todo._id} todo={todo} complete={(id) => completeTodo(id)} delete={(id)=>deleteTodo(id)}></TodoCard>}
+        //                     ) 
+        //             }
+        //         </div>
+        //     </div> : <Loading/>}</div>
     
     )
 }
