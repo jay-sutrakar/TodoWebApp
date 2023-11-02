@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
-import {Navbar, Nav, NavItem,NavLink as Tab ,Button} from 'reactstrap'
+// import {Navbar, Nav, NavItem,NavLink as Tab } from 'reactstrap'
 import {Route,NavLink} from 'react-router-dom'
 import TodoContainer from './Container/TodoContainer/TodoContainer'
 import ReminderContainer from './Container/ReminderContainer/ReminderContainer'
 import  classnames from 'classnames'
 import {SIGNOUT} from './Store/action'
+
 const Home = (props) => {
     const day = ['Sunday','Monday','Tuesday','Thursday','Friday','Saturday']
     const [date , setDate ] = useState(new Date())   
@@ -37,7 +38,7 @@ const Home = (props) => {
                     <h3>{date.toLocaleDateString()}</h3>
                     </div>
                 </Jumbotron> */}
-                <Navbar className="Toolbar" color='dark'>
+                {/* <Navbar className="Toolbar" color='dark'>
                         <Nav tabs>
                             <NavItem>
                             <NavLink to="/">
@@ -56,12 +57,12 @@ const Home = (props) => {
                                    > Reminders</Tab>
                                    </NavLink>
                             </NavItem>
-                            <NavItem>
+                            <NavItem> */}
                             {/* <Button onClick={() => props.logOut()}><ExitToAppRounded /></Button> */}
-                        </NavItem>
+                        {/* </NavItem>
 
                         </Nav>
-                </Navbar>
+                </Navbar> */}
                 <div className="Body">
                     {/* <Switch>
                         <Route path='/' exact><TodoContainer user={props.user} ></TodoContainer></Route>
